@@ -7,7 +7,7 @@ Haar Cascade files can be downloaded from the [OpenCV repository](https://github
 ## Usage
 Usage: **python face-detect.py [optional.jpg]**
 
-If only one command line argument is supplied (the program itself -- *faceDetect.py*), video stream from the webcam will be used as input.
+If only one command line argument is supplied (the program itself -- *face-detect.py*), video stream from the webcam will be used as input.
 If there are exactly two command line arguments and an image is provided as the second command line argument, the image will be used as input.
 
 ## Example
