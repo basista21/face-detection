@@ -1,5 +1,8 @@
 # Face Detection
-Face detection using Haar cascade classifiers in OpenCV
+Face detection using the frontal face Haar Cascade in OpenCV
+
+## Haar Cascade Classifiers
+Haar Cascade files can be downloaded from the [OpenCV repository!](https://github.com/opencv/opencv/tree/master/data/haarcascades).
 
 ## Usage
 Usage: **python faceDetect.py [optional.jpg]**
