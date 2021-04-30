@@ -21,7 +21,7 @@ def drawRectangle(image, color, faces):
 		cv2.rectangle(image, (x, y), (x+w, y+h), color, thickness)
 	return image
 
-def detectFace(grayscale, image):
+def detectFace(grayscale, image, isWebcam):
 	# Detects frontal faces in the image using the face cascade
 	faces = frontalFaceCascade.detectMultiScale(
 		grayscale,
@@ -30,31 +30,32 @@ def detectFace(grayscale, image):
 		minSize=(30,30),
 	)
 
-	# Detects profile faces in the image using the face cascade
-	profileFaces = profileFaceCascade.detectMultiScale(
-		grayscale,
-		scaleFactor=1.05,
-		minNeighbors=5,
-		minSize=(30,30),
-	)
-
-	# Detect profile faces in the flipped image to detect profile faces facing right
-	flipped = cv2.flip(grayscale, 1)
-	profileFacesFlipped = profileFaceCascade.detectMultiScale(
-		flipped,
-		scaleFactor=1.05,
-		minNeighbors=5,
-		minSize=(30,30)
-	)
+	if not(isWebcam):
+		# Detects profile faces in the image using the face cascade
+		profileFaces = profileFaceCascade.detectMultiScale(
+			grayscale,
+			scaleFactor=1.05,
+			minNeighbors=5,
+			minSize=(30,30),
+		)
+		# Detect profile faces in the flipped image to detect profile faces facing right
+		flipped = cv2.flip(grayscale, 1)
+		profileFacesFlipped = profileFaceCascade.detectMultiScale(
+			flipped,
+			scaleFactor=1.05,
+			minNeighbors=5,
+			minSize=(30,30)
+		)
 
 	# Draw a rectangle around each detected frontal face
 	image = drawRectangle(image, blue, faces)
 
-	# Draw a rectangle around each detected profile face
-	image = drawRectangle(image, green, profileFaces)
-	image = cv2.flip(image, 1)
-	image = drawRectangle(image, green, profileFacesFlipped)
-	image = cv2.flip(image, 1)
+	if not (isWebcam):
+		# Draw a rectangle around each detected profile face
+		image = drawRectangle(image, green, profileFaces)
+		image = cv2.flip(image, 1)
+		image = drawRectangle(image, green, profileFacesFlipped)
+		image = cv2.flip(image, 1)
 
 	return image
 
@@ -66,7 +67,7 @@ def useWebcam():
 		# Convert frame to grayscale
 		grayscale = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
-		frame = detectFace(grayscale, frame)
+		frame = detectFace(grayscale, frame, True)
 
 		# Flip the frame
 		frame = cv2.flip(frame, 1)
@@ -85,7 +86,7 @@ def useImage():
 	# Convert image to grayscale
 	grayscale = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 	
-	image = detectFace(grayscale, image)
+	image = detectFace(grayscale, image, False)
 
 	cv2.imshow("Face Detection", image)
 	cv2.waitKey(0)
