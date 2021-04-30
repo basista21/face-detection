@@ -8,7 +8,7 @@ Haar Cascade files can be downloaded from the [OpenCV repository](https://github
 The file for the pre-trained Caffe model can be found [here](https://github.com/opencv/opencv_3rdparty/blob/dnn_samples_face_detector_20170830/res10_300x300_ssd_iter_140000.caffemodel).
 
 ## Usage
-Usage (using haar cascades): **python face-detect-haar.py [optional.jpg]**
+Usage (using haar cascades): **python face-detect-haar.py [optional.jpg]**<br>
 Usage (using dnn)          : **python face-detect-dnn.py [optional.jpg]**
 
 If only one command line argument is supplied (the program itself e.g. *face-detect-haar.py*), video stream from the webcam will be used as input.
