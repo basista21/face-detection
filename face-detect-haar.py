@@ -1,3 +1,5 @@
+# Usage: python face-detect-haar.py [optional.jpg]
+
 import cv2
 import sys
 
@@ -97,7 +99,7 @@ def main():
 	elif len(sys.argv) == 2:
 		useImage()
 	else:
-		print("Usage: python face-detect.py [optional.jpg]")
+		print("Usage: python face-detect-haar.py [optional.jpg]")
 		exit()
 
 if __name__ == "__main__":
