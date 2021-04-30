@@ -5,7 +5,7 @@ Face detection using Haar Cascades (frontal face and profile face) and Deep Neur
 Haar Cascade files can be downloaded from the [OpenCV repository](https://github.com/opencv/opencv/tree/master/data/haarcascades).
 
 ## Deep Neural Network
-The file for the pre-trained Caffe model can be found ![here](https://github.com/opencv/opencv_3rdparty/blob/dnn_samples_face_detector_20170830/res10_300x300_ssd_iter_140000.caffemodel).
+The file for the pre-trained Caffe model can be found [here](https://github.com/opencv/opencv_3rdparty/blob/dnn_samples_face_detector_20170830/res10_300x300_ssd_iter_140000.caffemodel).
 
 ## Usage
 Usage (using haar cascades): **python face-detect-haar.py [optional.jpg]**
@@ -33,6 +33,7 @@ Haar cascades vs DNN:
 
 *A false positive and a false negative for the haar face detector. DNN successfully detected the face.*
 
+<br><br>
 
 ![image](https://user-images.githubusercontent.com/74373754/116711745-bd27e980-aa05-11eb-9b4d-5ff31fe8bdeb.png)
 
