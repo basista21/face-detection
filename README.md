@@ -25,7 +25,7 @@ Running **python face-detect-dnn.py dominic.jpg**:
 
 *The DNN detector successfully detected the third face, but with only 30.02% confidence.*
 
-# Comparison
+### Comparison
 
 Haar cascades vs DNN:
 
